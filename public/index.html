@@ -3,500 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MitiQloUIZ Expédition 33 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>MITIQLOUIZ EXPÉDITION 33 2026</title>
     <style>
         :root {
-            --bg-color: #0b0d12;
-            --card-bg: #131722;
-            --card-border: #232a3b;
-            --accent-gold: #e5b869;
-            --accent-cyan: #48cae4;
-            --text-main: #e2e8f0;
-            --text-muted: #8a99ad;
-            --font-title: 'Cinzel', serif;
-            --font-body: 'Inter', sans-serif;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+            --primary-color: #004a99; /* Bleu Mitiq */
+            --secondary-color: #ffd700; /* Jaune Expédition 33 */
+            --text-color: #333;
+            --bg-color: #f4f7f6;
+            --card-bg: #fff;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: var(--font-body);
-            min-height: 100vh;
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 2rem 1rem;
-            background-image: 
-                radial-gradient(circle at 50% 0%, rgba(72, 202, 228, 0.08) 0%, transparent 60%),
-                radial-gradient(circle at 50% 100%, rgba(229, 184, 105, 0.05) 0%, transparent 60%);
         }
 
         header {
             text-align: center;
-            margin-bottom: 2.5rem;
+            margin-bottom: 30px;
+            width: 100%;
             max-width: 800px;
         }
 
-        h1 {
-            font-family: var(--font-title);
-            font-size: 2.2rem;
-            color: var(--accent-gold);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            text-shadow: 0 0 20px rgba(229, 184, 105, 0.3);
-            margin-bottom: 0.5rem;
+        /* Style mis à jour pour le header avec l'image */
+        header h1 {
+            margin: 0;
+            padding: 0;
         }
 
-        .subtitle {
-            color: var(--text-muted);
-            font-size: 1rem;
+        header h1 img {
+            max-width: 100%; /* S'adapte à la largeur du header */
+            height: auto;    /* Conserve les proportions */
+            display: block;  /* Évite les espaces sous l'image */
+            margin: 0 auto;  /* Centre l'image si elle est plus petite que le header */
         }
 
-        .player-selector-container {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            padding: 1.5rem 2rem;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            max-width: 500px;
-            width: 100%;
+        #p-count {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-top: 10px;
         }
 
-        .player-selector-container label {
-            font-weight: 600;
-            color: var(--accent-cyan);
-            white-space: nowrap;
-        }
-
-        select {
-            width: 100%;
-            padding: 0.75rem;
-            background: #090b0f;
-            border: 1px solid var(--card-border);
-            color: var(--text-main);
-            border-radius: 8px;
-            font-size: 1rem;
-            font-family: var(--font-body);
-            outline: none;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        select:focus {
-            border-color: var(--accent-cyan);
-            box-shadow: 0 0 0 2px rgba(72, 202, 228, 0.2);
-        }
-
-        main {
-            width: 100%;
-            max-width: 1000px;
-            display: flex;
-            flex-direction: column;
-            gap: 3rem;
-        }
-
-        .section-title {
-            font-family: var(--font-title);
-            color: var(--accent-gold);
-            font-size: 1.4rem;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            border-bottom: 1px solid var(--card-border);
-            padding-bottom: 0.5rem;
-        }
-
-        .slots-grid {
+        #p-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .slot-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 280px;
-            transition: transform 0.2s, border-color 0.2s;
-            position: relative;
-        }
-
-        .slot-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(72, 202, 228, 0.4);
-        }
-
-        .slot-badge {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            font-size: 0.75rem;
-            background: rgba(255,255,255,0.05);
-            padding: 4px 8px;
-            border-radius: 4px;
-            color: var(--text-muted);
-        }
-
-        .picto-img {
-            max-width: 160px;
-            max-height: 160px;
-            object-fit: contain;
-            margin-top: 1rem;
-            filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
-        }
-
-        .empty-slot {
-            color: var(--text-muted);
-            font-style: italic;
-            font-size: 0.9rem;
-        }
-
-        .answers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .answer-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .answer-card-header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(0,0,0,0.2);
-            border-radius: 8px;
-            padding: 1rem;
-            height: 140px;
-        }
-
-        .answer-card-header img {
-            max-height: 110px;
-            max-width: 110px;
-            object-fit: contain;
-        }
-
-        .my-answer-input {
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 15px;
             width: 100%;
-            padding: 0.75rem;
-            background: #090b0f;
-            border: 1px solid var(--card-border);
-            color: var(--text-main);
+            max-width: 800px;
+        }
+
+        .p-card {
+            background-color: var(--card-bg);
             border-radius: 8px;
-            font-family: var(--font-body);
-            font-size: 0.95rem;
-            outline: none;
-        }
-
-        .my-answer-input:focus {
-            border-color: var(--accent-gold);
-        }
-
-        .others-answers {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            max-height: 160px;
-            overflow-y: auto;
-            padding-right: 4px;
-        }
-
-        .others-answers::-webkit-scrollbar {
-            width: 4px;
-        }
-        .others-answers::-webkit-scrollbar-thumb {
-            background: var(--card-border);
-            border-radius: 4px;
-        }
-
-        .answer-item {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 6px;
-            padding: 0.5rem 0.75rem;
-            font-size: 0.85rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .answer-player {
-            font-weight: 600;
-            color: var(--accent-cyan);
-        }
-
-        .answer-text {
-            color: var(--text-main);
-            word-break: break-word;
-        }
-
-        .no-answers {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            font-style: italic;
+            box-shadow: var(--shadow);
+            padding: 10px;
             text-align: center;
-            padding: 0.5rem;
+            transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .p-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .p-card img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 8px;
+            border: 3px solid var(--secondary-color);
+        }
+
+        .p-card .p-init {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Bienvenue dans le MitiQloUIZ Expédition 33 2026</h1>
-        <p class="subtitle">Sélectionnez votre identité pour accéder à vos pictogrammes et collaborer avec l'équipe.</p>
+        <!-- Le h1 contient maintenant l'image illu.png -->
+        <h1>
+            <img src="illu.png" alt="BIENVENUE DANS LE MITIQLOUIZ EXPÉDITION 33 2026">
+        </h1>
+        <div id="p-count">Chargement...</div>
     </header>
 
-    <div class="player-selector-container">
-        <label for="playerSelect">Joueur :</label>
-        <select id="playerSelect">
-            <option value="">-- Choisir un joueur --</option>
-        </select>
+    <div id="p-grid">
+        <!-- Les cartes des joueurs seront insérées ici -->
     </div>
 
-    <main id="mainContent" style="display: none;">
-        
-        <section>
-            <h2 class="section-title">Mes 3 Emplacements de Pictos</h2>
-            <div class="slots-grid" id="slotsGrid"></div>
-        </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('p-grid');
+            const countDisplay = document.getElementById('p-count');
 
-        <section>
-            <h2 class="section-title">Espace Collaboratif : Proposer un Nom</h2>
-            <div class="answers-grid" id="answersGrid"></div>
-        </section>
-
-    </main>
-
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { getFirestore, doc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-
-        const firebaseConfig = {
-            apiKey: "VOTRE_API_KEY",
-            authDomain: "votre-projet.firebaseapp.com",
-            projectId: "votre-projet",
-            storageBucket: "votre-projet.appspot.com",
-            messagingSenderId: "123456789",
-            appId: "1:123456789:web:abcdef"
-        };
-
-        let db = null;
-        try {
-            const app = initializeApp(firebaseConfig);
-            db = getFirestore(app);
-        } catch (e) {
-            console.warn("Firebase non configuré ou échec de l'initialisation.");
-        }
-
-        const ALL_PICTOS = [
-            { id: "ED", file: "ED.png" },
-            { id: "FA", file: "FA.png" },
-            { id: "LS", file: "LS.png" },
-            { id: "P",  file: "P.png"  },
-            { id: "TM", file: "TM.png" },
-            { id: "TT", file: "TT.png" },
-            { id: "VA", file: "VA.png" }
-        ];
-
-        let playersData = [];
-        let currentPLayer = null;
-        let allPropositions = {};
-
-        async function loadData() {
-            try {
-                const res = await fetch('./pictos.json');
-                playersData = await res.json();
-                initPlayerSelect();
-            } catch (err) {
-                console.error("Erreur lors du chargement de pictos.json:", err);
-            }
-        }
-
-        function initPlayerSelect() {
-            const select = document.getElementById('playerSelect');
-            playersData.forEach(p => {
-                const opt = document.createElement('option');
-                opt.value = p.nom;
-                opt.textContent = p.nom;
-                select.appendChild(opt);
-            });
-
-            select.addEventListener('change', (e) => {
-                const name = e.target.value;
-                if (name) {
-                    currentPLayer = playersData.find(p => p.nom === name);
-                    document.getElementById('mainContent').style.display = 'flex';
-                    renderPlayerSlots();
-                    renderAnswersSection();
-                } else {
-                    document.getElementById('mainContent').style.display = 'none';
-                }
-            });
-        }
-
-        function renderPlayerSlots() {
-            const container = document.getElementById('slotsGrid');
-            container.innerHTML = '';
-
-            const pictos = currentPLayer.pictos || [];
-
-            for (let i = 0; i < 3; i++) {
-                const card = document.createElement('div');
-                card.className = 'slot-card';
-
-                const badge = document.createElement('div');
-                badge.className = 'slot-badge';
-                badge.textContent = `Emplacement ${i + 1}`;
-                card.appendChild(badge);
-
-                if (i < pictos.length) {
-                    const pictoId = pictos[i];
-                    const pictoObj = ALL_PICTOS.find(p => p.id === pictoId);
-                    const img = document.createElement('img');
-                    img.src = `./pictos/${pictoObj ? pictoObj.file : pictoId + '.png'}`;
-                    img.alt = "Pictogramme";
-                    img.className = 'picto-img';
-                    card.appendChild(img);
-                } else {
-                    const emptyText = document.createElement('div');
-                    emptyText.className = 'empty-slot';
-                    emptyText.textContent = "Emplacement vide";
-                    card.appendChild(emptyText);
-                }
-
-                container.appendChild(card);
-            }
-        }
-
-        function renderAnswersSection() {
-            const container = document.getElementById('answersGrid');
-            container.innerHTML = '';
-
-            ALL_PICTOS.forEach(picto => {
-                const card = document.createElement('div');
-                card.className = 'answer-card';
-
-                const header = document.createElement('div');
-                header.className = 'answer-card-header';
-                const img = document.createElement('img');
-                img.src = `./pictos/${picto.file}`;
-                img.alt = "Pictogramme";
-                header.appendChild(img);
-                card.appendChild(header);
-
-                const input = document.createElement('input');
-                input.type = 'text';
-                input.className = 'my-answer-input';
-                input.placeholder = 'Proposer un nom...';
-
-                if (allPropositions[picto.id] && allPropositions[picto.id][currentPLayer.nom]) {
-                    input.value = allPropositions[picto.id][currentPLayer.nom];
-                }
-
-                input.addEventListener('input', (e) => {
-                    saveProposition(picto.id, e.target.value);
-                });
-
-                card.appendChild(input);
-
-                const othersDiv = document.createElement('div');
-                othersDiv.className = 'others-answers';
-                othersDiv.id = `others-${picto.id}`;
-
-                card.appendChild(othersDiv);
-                container.appendChild(card);
-
-                updateOthersAnswersUI(picto.id);
-            });
-        }
-
-        function updateOthersAnswersUI(pictoId) {
-            const container = document.getElementById(`others-${pictoId}`);
-            if (!container) return;
-
-            container.innerHTML = '';
-            const props = allPropositions[pictoId] || {};
-            const entries = Object.entries(props).filter(([player, text]) => text.trim() !== '');
-
-            if (entries.length === 0) {
-                container.innerHTML = '<div class="no-answers">Aucune proposition pour le moment</div>';
-                return;
-            }
-
-            entries.forEach(([player, text]) => {
-                const item = document.createElement('div');
-                item.className = 'answer-item';
-                item.innerHTML = `<span class="answer-player">${player}</span><span class="answer-text">${text}</span>`;
-                container.appendChild(item);
-            });
-        }
-
-        async function saveProposition(pictoId, text) {
-            if (!currentPLayer) return;
-
-            if (!allPropositions[pictoId]) {
-                allPropositions[pictoId] = {};
-            }
-            allPropositions[pictoId][currentPLayer.nom] = text;
-
-            updateOthersAnswersUI(pictoId);
-
-            localStorage.setItem('mitiqlouiz_props', JSON.stringify(allPropositions));
-
-            if (db) {
-                try {
-                    await setDoc(doc(db, "propositions", pictoId), {
-                        [currentPLayer.nom]: text
-                    }, { merge: true });
-                } catch (err) {
-                    console.error("Erreur de sauvegarde Firebase:", err);
-                }
-            }
-        }
-
-        function listenRealtimeUpdates() {
-            const local = localStorage.getItem('mitiqlouiz_props');
-            if (local) {
-                try { allPropositions = JSON.parse(local); } catch (e) {}
-            }
-
-            if (!db) return;
-
-            ALL_PICTOS.forEach(picto => {
-                onSnapshot(doc(db, "propositions", picto.id), (docSnap) => {
-                    if (docSnap.exists()) {
-                        allPropositions[picto.id] = docSnap.data();
-                        updateOthersAnswersUI(picto.id);
-                    }
-                });
-            });
-        }
-
-        loadData();
-        listenRealtimeUpdates();
-    </script>
-</body>
-</html>
+            fetch('pictos.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erreur réseau lors du chargement
