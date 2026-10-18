@@ -1,0 +1,101 @@
+[
+  {
+    "nom": "Miti",
+    "pictos": [
+      "P"
+    ]
+  },
+  {
+    "nom": "Paul",
+    "pictos": [
+      "VA",
+      "LS"
+    ]
+  },
+  {
+    "nom": "Jérémy",
+    "pictos": [
+      "TT",
+      "FA"
+    ]
+  },
+  {
+    "nom": "Morgan",
+    "pictos": [
+      "TM"
+    ]
+  },
+  {
+    "nom": "Camille",
+    "pictos": [
+      "ED",
+      "VA"
+    ]
+  },
+  {
+    "nom": "Clara",
+    "pictos": [
+      "ED",
+      "VA",
+      "LS"
+    ]
+  },
+  {
+    "nom": "Julien",
+    "pictos": []
+  },
+  {
+    "nom": "Marion",
+    "pictos": [
+      "ED"
+    ]
+  },
+  {
+    "nom": "Odelin",
+    "pictos": [
+      "VA",
+      "FA"
+    ]
+  },
+  {
+    "nom": "Quentin",
+    "pictos": [
+      "FA",
+      "LS"
+    ]
+  },
+  {
+    "nom": "Margaux",
+    "pictos": [
+      "ED"
+    ]
+  },
+  {
+    "nom": "Ben",
+    "pictos": [
+      "TM",
+      "LS"
+    ]
+  },
+  {
+    "nom": "César",
+    "pictos": [
+      "TM"
+    ]
+  },
+  {
+    "nom": "Louise",
+    "pictos": [
+      "ED",
+      "FA"
+    ]
+  },
+  {
+    "nom": "Finn",
+    "pictos": [
+      "VA",
+      "TM",
+      "LS"
+    ]
+  }
+]
