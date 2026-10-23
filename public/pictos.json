@@ -29,7 +29,7 @@
     "nom": "Camille",
     "pictos": [
       "ED",
-      "VA"
+      "FA"
     ]
   },
   {
@@ -42,19 +42,24 @@
   },
   {
     "nom": "Julien",
-    "pictos": []
+    "pictos": [
+      "TM"
+    ]
   },
   {
     "nom": "Marion",
     "pictos": [
-      "ED"
+      "ED",
+      "TT",
+      "LS"
     ]
   },
   {
     "nom": "Odelin",
     "pictos": [
       "VA",
-      "FA"
+      "FA",
+      "TT"
     ]
   },
   {
@@ -67,14 +72,17 @@
   {
     "nom": "Margaux",
     "pictos": [
-      "ED"
+      "ED",
+      "TT",
+      "FA"
     ]
   },
   {
     "nom": "Ben",
     "pictos": [
-      "TM",
-      "LS"
+      "FA",
+      "LS",
+      "TT"
     ]
   },
   {
@@ -94,8 +102,14 @@
     "nom": "Finn",
     "pictos": [
       "VA",
-      "TM",
       "LS"
+    ]
+  },
+  {
+    "nom": "Flavien",
+    "pictos": [
+      "TT",
+      "TM"
     ]
   }
 ]
